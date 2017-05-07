@@ -1,0 +1,3 @@
+services:
+  hackathon.services.assertiva:
+    class: Drupal\hackathon\Services\AssertivaServices

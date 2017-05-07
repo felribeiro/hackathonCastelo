@@ -1,0 +1,11 @@
+materialize-css:
+    version: VERSION
+    js:
+        js/locale.js: {}
+        js/jquery-3.2.1.min.js: {}
+        js/materialize.min.js: {}
+        js/app.js: {}
+    css:
+        theme:
+            css/materialize.min.css: {}
+            css/style.css: {}

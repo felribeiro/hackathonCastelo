@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+body {
+    font-family: 'Roboto', sans-serif !important;
+}
+
+.label-proposal p{
+    padding: 20px;
+    background: #f2f2f2;
+    border-radius: 30px;
+    font-weight: bold;
+    display:inline-block;
+}
+
+.label-proposal .price {
+    font-size: 22px;
+}
+
+.solution, .no-solution {
+    display: none;
+}
+
+.complete {
+    display: none;
+}

@@ -1,0 +1,38 @@
+hackathon.landing:
+    path: '/landing/{id}'
+    defaults: 
+        _controller: '\Drupal\hackathon\Controller\LandingController::content'
+    requirements:
+        _permission: 'access content'
+        
+hackathon.solution:
+    path: '/solution'
+    methods: [POST]
+    defaults: 
+        _controller: '\Drupal\hackathon\Controller\LandingController::solution'
+    requirements:
+        _permission: 'access content'
+
+hackathon.admin.structure:
+  path: '/admin/meu-condominio'
+  defaults:
+    _controller: '\Drupal\system\Controller\SystemController::systemAdminMenuBlockPage'
+    _title: 'Meu Condomínio'
+  requirements:
+    _permission: 'access content'
+
+hackathon.admin.atualiza_cadastro_form:
+ path: '/admin/meu-condominio/atualiza-cadastro'
+ defaults:
+   _form: 'Drupal\hackathon\Form\AtualizaCadastroForm'
+   _title: 'Atualiza Cadastro'
+ requirements:
+   _permission: 'access content'
+
+hackathon.admin.envia_proposta_form:
+ path: '/admin/meu-condominio/envia-proposta/{id}'
+ defaults:
+   _form: 'Drupal\hackathon\Form\EnviaPropostaForm'
+   _title: 'Envia Proposta'
+ requirements:
+   _permission: 'access content'

@@ -1,0 +1,13 @@
+hackathon.admin.structure:
+  route_name: hackathon.admin.structure
+  parent: system.admin
+  description: 'Meu Condomínio.'
+  title: Meu Condomínio
+  weight: 20
+
+hackathon.admin.atualiza_cadastro_form:
+ title: 'Atualiza Cadastro'
+ description: 'Atualiza Cadastro'
+ parent: hackathon.admin.structure
+ route_name: hackathon.admin.atualiza_cadastro_form
+ weight: 10

@@ -1,0 +1,143 @@
+{{ attach_library('hackathon/materialize-css') }}
+<div class="complete" id="complete">
+    <div class="col s12 m6">
+        <div class="card green">
+            <div class="card-content white-text">
+                <span class="card-title">Sucesso!!!</span>
+                <p>Recebemos todas as informações e agora elas serão analisadas! Obrigado!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container" id="soluton-content">
+    <header>
+        <h4>CharCond</h4>
+        <p class="flow-text">O CharCond é uma solução simples e completa para facilitar a negociação de contas em aberto em seu condomínio.</p>
+        <hr/>
+    </header>
+
+    <section class="section">
+        <table>
+            <thead>
+                <th>Credor</th>
+                <th>CNPJ</th>
+            </thead>
+            <tbody>
+                <td>{{ company.name }}</td>
+                <td>{{ company.cnpj }}</td>
+            </tbody>
+        </table>
+    </section>
+
+
+    <section class="section">
+        <h3>Situação</h3>
+
+        <p>Total em aberto: <strong class="red-text text-lighten-2">R$ {{ bills }}</strong></p>
+
+        <div class="label-proposal">
+            <h3>Proposta</h3>
+            {% for item in proposal %}
+            <p class="green-text text-darken-2"><span class="price">{{ item.value }}</span></p>
+            {% endfor %}
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="col s12 m6">
+            <div class="card blue">
+                <div class="card-content white-text">
+                    <span class="card-title">Você aceita a nossa proposta?</span>
+                </div>
+                <div class="card-action">
+                    <a href="#" class="btn light-green darken-1 btn-solution">Sim</a>
+                    <a href="#" class="btn blue-grey darken-1 btn-no-solution">Não</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <form>
+        <input type="hidden" name="solution_type" id="solution_type"/>
+        <input type="hidden" name="id" value="{{ id }}"/>
+        <div class="section solution" id="solution-step-1">
+            <div class="row">
+                <div class="input-field col s12 m6">
+                    <select id="payment_method" name="payment_method" required="true">
+                        <option value="" disabled selected>Escolha uma opção</option>
+                        <option value="1">Boleto</option>
+                        <option value="2">Cartão de crédito - PagSeguro</option>
+                    </select>
+                    <label for="payment_method">Qual a melhor forma de pagamento?</label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="input-field col s12 m6">
+                    <input type="date" id="payment_date" name="payment_date" required="true" class="datepicker">
+                    <label for="payment_date">Qual a melhor data para o pagamento?</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="section no-solution" id="no-solution-step-1">
+            <div class="row">
+                <div class="col s12 m6">
+                    <div class="card green">
+                        <div class="card-content white-text">
+                            <span class="card-title">Ajude-nos a encontrar a melhor solução para você</span>
+                            <p>Justifique sua decisão nos campos a seguir</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="input-field col s12 m6">
+                    <select id="solution_justify" name="solution_justify" required="true">
+                        <option value="" disabled selected>Escolha uma opção</option>
+                        <option value="1">Não gostei da proposta</option>
+                        <option value="2">Estou sem dinheiro</option>
+                    </select>
+                    <label for="solution_justify">Porque esta proposta não é util?</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="section no-solution" id="no-solution-step-2">
+            <div class="row">
+                <div class="col s12 m6">
+                    <select id="solution_justify_detail" name="solution_justify_detail" required="true">
+                        <option value="" disabled selected>Escolha uma opção</option>
+                        <option value="1">Estou desempregado</option>
+                        <option value="2">Estou endividado</option>
+                    </select>
+                    <label for="solution_justify_detail">Defina a sua situação financeira atual</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="section no-solution" id="no-solution-step-3">
+            <div class="row">
+                <div class="col s12 m6">
+                    <div class="input-field">
+                        <textarea id="user_offer" name="user_offer" required="true" class="materialize-textarea" data-length="120"></textarea>
+                        <label for="user_offer">Contraproposta</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card green no-solution" id="no-solution-step-info">
+            <div class="card-content white-text">
+                <span class="card-title">Pronto!</span>
+                <p class="flow-text">As novas informações nos ajudarão a encontrar uma melhor solução para você!!!</p>
+            </div>
+        </div>
+
+        <div class="solution" id="finish">
+            <a href="#" class="btn light-green darken-1" id="submit-solution">Enviar</a>
+        </div>
+    </form>
+</div>

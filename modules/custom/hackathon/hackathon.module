@@ -1,0 +1,34 @@
+<?php
+
+use Drupal\Component\Utility\Html;
+
+function hackathon_theme($existing, $type, $theme, $path) {
+    return [
+        'landing_home' => [
+            'variables' => [
+                'welcome_msg' => NULL,
+                'company' => NULL,
+                'bills' => NULL,
+                'proposal' => NULL,
+                'id'=>NULL,
+            ]
+            , 'template' => 'landing_home'
+        ]
+    ];
+}
+
+function hackathon_mail($key, &$message, $params) {
+
+  $message['headers'] = array_merge(
+    $message['headers'],
+    array(
+      'MIME-Version' => '1.0',
+      'Content-Type' => 'text/html; charset=UTF-8; format=flowed',
+      'Content-Transfer-Encoding' => '8Bit',
+      'X-Mailer' => 'Drupal'
+    )
+  );
+   $message['from'] = \Drupal::config('system.site')->get('mail');
+   $message['subject'] = $params['subject'];
+   $message['body'][] = Html::escape($params['message']);
+}
